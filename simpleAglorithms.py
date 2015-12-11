@@ -1,13 +1,13 @@
 __author__ = 'DeyerliQiz'
 
-from dataAnalysis import getData
+from dataAnalysis import getTrainData
 from sklearn import svm
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.cross_validation import cross_val_score
 from sklearn.neighbors import NearestNeighbors
 from sklearn.ensemble import RandomForestClassifier
 
-X,y=getData(size=10)
+X,y=getTrainData(size=10)
 print("data loaded!")
 
 clfs=\

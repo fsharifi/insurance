@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 
-def getData(size=None,featureIndices=None):
+def getTrainData(size=None,featureIndices=None):
     train = pd.read_csv('./data/train.csv')
     train=train.fillna(0)
     # train=train.fillna(train.mean())
@@ -45,5 +45,7 @@ def getTestData(size=None,featureIndices=None):
     y=list(map(np.int32,y))
     return X,y
 
-# print(getData(size=10))
-print(getTestData(size=10))
+# Example
+# X,y=getData(size=10)
+# test=
+#
