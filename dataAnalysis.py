@@ -43,12 +43,24 @@ def getTestData(dict,size=None,featureIndices=None,):
     test[:,2]=changed[0]
 
     X= test[:,indices]
+    ids=test[:,0]
+    return X,ids
 
-    return X
+
+def saveToFile(predictions,ids,filename):
+
+    submission = pd.DataFrame({
+    "Id": ids,
+    "Response": predictions
+    })
+    submission.to_csv(filename, index=False)
 
 # Example
+#
 # X,y,dict=getTrainData(size=1000)
 # print(X)
 # print(y)
-# testX=getTestData(dict,size=1000)
+# testX,ids=getTestData(dict,size=1000)
 # print(testX)
+# print(ids)
+# saveToFile(y,ids,"testSubmission.csv")
