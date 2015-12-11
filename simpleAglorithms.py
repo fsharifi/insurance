@@ -7,11 +7,11 @@ from sklearn.cross_validation import cross_val_score
 from sklearn.neighbors import NearestNeighbors
 from sklearn.ensemble import RandomForestClassifier
 
-X,y=getTrainData(size=10)
+X,y,dict=getTrainData(size=10)
 print("data loaded!")
 
 clfs=\
-    [svm.SVC(),
+    [svm.SVC(class_weight='auto'),
      # NearestNeighbors(n_neighbors=7, algorithm='ball_tree'),
      RandomForestClassifier(n_estimators=10)]
 
