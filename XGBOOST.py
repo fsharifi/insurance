@@ -26,7 +26,8 @@ X=X[:,importance[1:30]]
 
 clf = GradientBoostingClassifier(n_estimators=1000, max_depth=None,
 learning_rate=1, random_state=0).fit(X,y)
-ytest=clf.predict(X)
+ytest=clf.predict(Test)
+print(ytest.shape)
 submission = pd.DataFrame({
         "Id": Test["Id"],
         "Response": ytest
