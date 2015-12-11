@@ -12,7 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 from dataAnalysis import getData
 
 
-X,y=getData(size=100)
+X,y=getData()
 print("Data loaded!")
 # clf = DecisionTreeClassifier(max_depth=None, min_samples_split=1,
 # random_state=0)
