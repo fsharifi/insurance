@@ -14,19 +14,18 @@ from dataAnalysis import getData
 
 X,y=getData()
 print("Data loaded!")
-# clf = DecisionTreeClassifier(max_depth=None, min_samples_split=1,
-# random_state=0)
-# scores = cross_val_score(clf, X, y)
-# print(scores.mean() )
-clf = RandomForestClassifier(n_estimators=350, max_depth=None,
+clf = DecisionTreeClassifier(max_depth=None, min_samples_split=1,
+random_state=0)
+scores = cross_val_score(clf, X, y)
+print(scores.mean() )
+clf = RandomForestClassifier(n_estimators=1000, max_depth=None,
 min_samples_split=1, random_state=0)
 scores = cross_val_score(clf, X, y)
 print(scores.mean())
-clf = ExtraTreesClassifier(n_estimators=350, max_depth=None,
+clf = ExtraTreesClassifier(n_estimators=1000, max_depth=None,
 min_samples_split=1, random_state=0)
 scores = cross_val_score(clf, X, y)
-print(scores.mean() )
-
+print(scores.mean())
 exit(0)
 clf = GradientBoostingClassifier(n_estimators=350, max_depth=None,
 learning_rate=1, random_state=0)
