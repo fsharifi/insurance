@@ -27,24 +27,19 @@ indeces=list(set(indeces)-set([0,2]))
 # exit(0)
 X, y = train[:,indeces] , train[:,-1]
 y=list(map(np.int32,y))
-
-X, y = make_blobs(n_samples=10000, n_features=10, centers=100,random_state=0)
-
 # clf = DecisionTreeClassifier(max_depth=None, min_samples_split=1,
 # random_state=0)
 # scores = cross_val_score(clf, X, y)
 # print(scores.mean() )
-# clf = RandomForestClassifier(n_estimators=10, max_depth=None,
-# min_samples_split=1, random_state=0)
-# scores = cross_val_score(clf, X, y)
-# print(scores.mean() )
-# clf = ExtraTreesClassifier(n_estimators=10, max_depth=None,
-# min_samples_split=1, random_state=0)
-# scores = cross_val_score(clf, X, y)
-# print(scores.mean() )
-
-for itr in range(100):
-    clf = GradientBoostingClassifier(n_estimators=itr, max_depth=None,
-    learning_rate=1, random_state=0)
-    scores = cross_val_score(clf, X, y)
-    print(scores.mean() )
+clf = RandomForestClassifier(n_estimators=350, max_depth=None,
+min_samples_split=1, random_state=0)
+scores = cross_val_score(clf, X, y)
+print(scores.mean())
+clf = ExtraTreesClassifier(n_estimators=350, max_depth=None,
+min_samples_split=1, random_state=0)
+scores = cross_val_score(clf, X, y)
+print(scores.mean() )
+clf = GradientBoostingClassifier(n_estimators=350, max_depth=None,
+learning_rate=1, random_state=0)
+scores = cross_val_score(clf, X, y)
+print(scores.mean())
