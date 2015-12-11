@@ -9,36 +9,24 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
+from dataAnalysis import getData
 
 
-
-train = pd.read_csv('./data/train.csv')
-# print(train.isnull().sum())
-train=train.fillna(0)
-# print(train.isnull().sum())
-
-train=train.values
-#train=train[0:100,:]
-# Build a classification task using 3 informative features
-indeces=(range(train.shape[1]-1))
-indeces=list(set(indeces)-set([0,2]))
-# print(indeces)
-# print(train.shape[1])
-# exit(0)
-X, y = train[:,indeces] , train[:,-1]
-y=list(map(np.int32,y))
-# clf = DecisionTreeClassifier(max_depth=None, min_samples_split=1,
-# random_state=0)
-# scores = cross_val_score(clf, X, y)
-# print(scores.mean() )
-clf = RandomForestClassifier(n_estimators=350, max_depth=None,
+X,y=getData()
+print("Data loaded!")
+clf = DecisionTreeClassifier(max_depth=None, min_samples_split=1,
+random_state=0)
+scores = cross_val_score(clf, X, y)
+print(scores.mean() )
+clf = RandomForestClassifier(n_estimators=1000, max_depth=None,
 min_samples_split=1, random_state=0)
 scores = cross_val_score(clf, X, y)
 print(scores.mean())
-clf = ExtraTreesClassifier(n_estimators=350, max_depth=None,
+clf = ExtraTreesClassifier(n_estimators=1000, max_depth=None,
 min_samples_split=1, random_state=0)
 scores = cross_val_score(clf, X, y)
-print(scores.mean() )
+print(scores.mean())
+exit(0)
 clf = GradientBoostingClassifier(n_estimators=350, max_depth=None,
 learning_rate=1, random_state=0)
 scores = cross_val_score(clf, X, y)

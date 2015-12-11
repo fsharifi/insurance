@@ -11,7 +11,7 @@ def getData(size=None):
     if size:
         train=train[:size,:]
     indices=list(range(1,train.shape[1]-1))#All indices except ID and except response
-    print(indices)
+    # print(indices)
     changed=utils.categoricalToNumerical(train[:,2])
     print("number of categories of column 2:",changed[1])
     train[:,2]=changed[0]
@@ -21,4 +21,4 @@ def getData(size=None):
     y=list(map(np.int32,y))
     return X,y
 
-print(getData(size=10))
+# print(getData(size=10))

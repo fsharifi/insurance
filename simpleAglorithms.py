@@ -7,6 +7,7 @@ from sklearn.cross_validation import cross_val_score
 
 X,y=getData(size=10)
 print("data loaded!")
+
 clfs=\
     []
 
