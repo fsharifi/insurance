@@ -15,3 +15,4 @@ for clf in clfs:
     print(clf)
     scores = cross_val_score(clf, X, y)
     print(scores.mean())
+
