@@ -9,7 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
-from dataAnalysis import getTrainData,getTestData
+from dataAnalysis import *
 
 importance=[10,9,3,7,40,8,11,16,1,38,37,19,35,33,12,59,34,51,
 92,28,36,32,77,22,45,65,5,17,14,70,30,27,20,80,52,72
@@ -23,19 +23,14 @@ importance=[10,9,3,7,40,8,11,16,1,38,37,19,35,33,12,59,34,51,
 
 Test = pd.read_csv('./data/test.csv')
 X,y,dict=getTrainData(size=1000)
-Test=getTestData(dict,size=1000)
+Test,ids=getTestData(dict,size=1000)
 
 print("Data loaded!")
 X=X[:,importance[1:30]]
 Test=Test[:,importance[1:30]]
-
 clf = GradientBoostingClassifier(n_estimators=1000, max_depth=None,
 learning_rate=1, random_state=0).fit(X,y)
 ytest=clf.predict(Test)
 print(ytest.shape)
-submission = pd.DataFrame({
-        "Id": Test["Id"],
-        "Response": ytest
-    })
-submission.to_csv('XGBOOST.csv', index=False)
+saveToFile(ytest,ids,"testSubmission.csv")
 
