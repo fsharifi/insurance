@@ -9,7 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
-from dataAnalysis import getData
+from dataAnalysis import getTrainData
 
 importance=[10,9,3,7,40,8,11,16,1,38,37,19,35,33,12,59,34,51,
 92,28,36,32,77,22,45,65,5,17,14,70,30,27,20,80,52,72
@@ -20,7 +20,7 @@ importance=[10,9,3,7,40,8,11,16,1,38,37,19,35,33,12,59,34,51,
 ,118,94,79,96,86,68,47,97,95,123,46,121,85,91,112,90,74,71]
 
 
-X,y=getData(size=1000)
+X,y=getTrainData(size=1000)
 print("Data loaded!")
 X=X[:,importance[1:40]]
 clf = DecisionTreeClassifier(max_depth=None, min_samples_split=1,
