@@ -4,13 +4,18 @@
 @author: Z-bra
 
 """
-
+print("erfan")
 import pandas as pd
 import numpy as np
+# import sklearn.ensemble
+exit(0)
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.datasets import make_blobs
 from sklearn.ensemble import RandomForestClassifier
 
-
-train = pd.read_csv('../data/train.csv')
+train = pd.read_csv('./data/train.csv')
 
 def do_treatment(df):
     for col in df:
