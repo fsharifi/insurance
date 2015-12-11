@@ -9,7 +9,7 @@ X,y=getData(size=10)
 print("data loaded!")
 
 clfs=\
-    []
+    [svm.SVC()]
 
 for clf in clfs:
     print(clf)
