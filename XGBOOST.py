@@ -19,24 +19,17 @@ importance=[10,9,3,7,40,8,11,16,1,38,37,19,35,33,12,59,34,51,
 ,84,103,18,63,93,122,67,108,83,113,106,116,4,115,104,82,120,89
 ,118,94,79,96,86,68,47,97,95,123,46,121,85,91,112,90,74,71]
 
-
-X,y=getData(size=1000)
+Test = pd.read_csv('./data/test.csv')
+X,y=getData()
 print("Data loaded!")
-X=X[:,importance[1:40]]
-clf = DecisionTreeClassifier(max_depth=None, min_samples_split=1,
-random_state=0)
-scores = cross_val_score(clf, X, y)
-print(scores.mean())
-clf = RandomForestClassifier(n_estimators=1000, max_depth=None,
-min_samples_split=1, random_state=0)
-scores = cross_val_score(clf, X, y)
-print(scores.mean())
-clf = ExtraTreesClassifier(n_estimators=1000, max_depth=None,
-min_samples_split=1, random_state=0)
-scores = cross_val_score(clf, X, y)
-print(scores.mean())
-exit(0)
-clf = GradientBoostingClassifier(n_estimators=350, max_depth=None,
-learning_rate=1, random_state=0)
-scores = cross_val_score(clf, X, y)
-print(scores.mean())
+X=X[:,importance[1:30]]
+
+clf = GradientBoostingClassifier(n_estimators=1000, max_depth=None,
+learning_rate=1, random_state=0).fit(X,y)
+ytest=clf.predict(X)
+submission = pd.DataFrame({
+        "Id": Test["Id"],
+        "Response": ytest
+    })
+submission.to_csv('XGBOOST.csv', index=False)
+

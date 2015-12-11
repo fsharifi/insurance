@@ -39,6 +39,8 @@ std = np.std([tree.feature_importances_ for tree in forest.estimators_],
              axis=0)
 indices = np.argsort(importances)[::-1]
 
+
+
 # Print the feature ranking
 print("Feature ranking:")
 
