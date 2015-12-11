@@ -3,27 +3,22 @@ import numpy as np
 import pandas as pd
 
 
-train = pd.read_csv('./data/train.csv')
-# print(train.isnull().sum())
-train=train.fillna(0)
-# print(train.isnull().sum())
+def getData(size=None):
+    train = pd.read_csv('./data/train.csv')
+    train=train.fillna(0)
+    # train=train.fillna(train.mean())
+    train=train.values
+    if size:
+        train=train[:size,:]
+    indices=list(range(1,train.shape[1]-1))#All indices except ID and except response
+    print(indices)
+    changed=utils.categoricalToNumerical(train[:,2])
+    print("number of categories of column 2:",changed[1])
+    train[:,2]=changed[0]
 
-train=train.values
-# train=train[0:100,:]
-# Build a classification task using 3 informative features
-indeces=(range(train.shape[1]-1))
-indeces=list(set(indeces)-set([0]))#removing ID
-# print(indeces)
-# print(train.shape[1])
-changed=utils.categoricalToNumerical(train[:,2])
-print("number of categories of column 2:",changed[1])
-train[:,2]=changed[0]
+    X, y = train[:,indices] , train[:,-1]
 
-X, y = train[:,indeces] , train[:,-1]
-y=list(map(np.int32,y))
+    y=list(map(np.int32,y))
+    return X,y
 
-print(type(y))
-print(type(y[0]))
-print(y)
-numfeatures=len(indeces)
-print(type(X))
+print(getData(size=10))
