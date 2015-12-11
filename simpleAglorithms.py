@@ -5,7 +5,7 @@ from sklearn import svm
 
 print(svm)
 
-X,y=getData(size=10)
+X,y=getData()
 clfs=\
     []
 scores = cross_val_score(clf, X, y)
