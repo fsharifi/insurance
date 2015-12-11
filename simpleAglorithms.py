@@ -15,6 +15,6 @@ clfs=\
 
 for clf in clfs:
     print(clf)
-    scores = cross_val_score(clf, X, y)
+    scores = cross_val_score(clf, X, y,scoring="accuracy")
     print(scores.mean())
 
