@@ -4,7 +4,7 @@ import pandas as pd
 
 
 def getTrainData(size=None,featureIndices=None):
-    train = pd.read_csv('./data/train.csv')
+    train = pd.read_csv('./input/train.csv')
     train=train.fillna(0)
     # train=train.fillna(train.mean())
     train=train.values
@@ -27,7 +27,7 @@ def getTrainData(size=None,featureIndices=None):
 
 
 def getTestData(dict,size=None,featureIndices=None,):
-    test = pd.read_csv('./data/test.csv')
+    test = pd.read_csv('./input/test.csv')
     test=test.fillna(0)
     # train=train.fillna(train.mean())
     test=test.values

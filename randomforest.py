@@ -12,7 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 
-train = pd.read_csv('./data/train.csv')
+train = pd.read_csv('./input/train.csv')
 # print(train.isnull().sum())
 train=train.fillna(0)
 # print(train.isnull().sum())

@@ -15,7 +15,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.datasets import make_blobs
 from sklearn.ensemble import RandomForestClassifier
 
-train = pd.read_csv('./data/train.csv')
+train = pd.read_csv('./input/train.csv')
 
 def do_treatment(df):
     for col in df:
@@ -35,13 +35,13 @@ clf = RandomForestClassifier(n_estimators = 200, max_features = 'sqrt',
                              
 clf.fit(train[features], train[target])
 
-test = pd.read_csv('../data/test.csv')
+test = pd.read_csv('../input/test.csv')
 
 do_treatment(test)
 
 preds = clf.predict(test[features])
 
-sub = pd.read_csv('../data/sample_submission.csv')
+sub = pd.read_csv('../input/sample_submission.csv')
 
 sub[target] = preds
 

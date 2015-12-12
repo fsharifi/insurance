@@ -21,7 +21,7 @@ importance=[10,9,3,7,40,8,11,16,1,38,37,19,35,33,12,59,34,51,
 
 
 
-Test = pd.read_csv('./data/test.csv')
+Test = pd.read_csv('./input/test.csv')
 X,y,dict=getTrainData(size=1000)
 Test,ids=getTestData(dict,size=1000)
 print("Data loaded!")
@@ -32,5 +32,5 @@ learning_rate=1, random_state=0).fit(X,y)
 ytest=clf.predict(Test)
 scores = cross_val_score(clf, X, y)
 print(scores.mean())
-saveToFile(ytest,ids,"./data/testSubmission.csv")
+saveToFile(ytest,ids,"./input/testSubmission.csv")
 

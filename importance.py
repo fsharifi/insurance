@@ -8,7 +8,7 @@ from sklearn.datasets import make_classification
 from sklearn.ensemble import ExtraTreesClassifier
 
 
-train = pd.read_csv('./data/train.csv')
+train = pd.read_csv('./input/train.csv')
 # print(train.isnull().sum())
 train=train.fillna(0)
 # print(train.isnull().sum())

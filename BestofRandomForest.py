@@ -19,7 +19,7 @@ importance=[10,9,3,7,40,8,11,16,1,38,37,19,35,33,12,59,34,51,
 ,84,103,18,63,93,122,67,108,83,113,106,116,4,115,104,82,120,89
 ,118,94,79,96,86,68,47,97,95,123,46,121,85,91,112,90,74,71]
 
-Test = pd.read_csv('./data/test.csv')
+Test = pd.read_csv('./input/test.csv')
 X,y=getTrainData()
 print("Data loaded!")
 X=X[:,importance[1:30]]
